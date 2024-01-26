@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.20)
+cmake_minimum_required(VERSION 3.15)
 
 project(bitcask-cpp LANGUAGES CXX)
 
@@ -21,10 +21,14 @@ add_executable(bitcask-test ${TEST_SOURCES})
 
 # Include directories
 target_include_directories(bitcask PUBLIC headers)
-target_include_directories(bitcask-test PRIVATE src)
+# target_include_directories(bitcask-test PRIVATE src)
 
 # Link libraries if needed
-target_link_libraries(bitcask-test PRIVATE bitcask)
+target_link_libraries(bitcask-test PRIVATE
+ bitcask
+ gtest
+ gtest_main
+ pthread)
 
 # Optional: Set the output directories for executables
 set_target_properties(bitcask-test
@@ -35,5 +39,3 @@ set_target_properties(bitcask-test
 # Optional: Add testing support
 enable_testing()
 
-# Add tests
-add_test(NAME MyCppTests COMMAND MyCppTests)
