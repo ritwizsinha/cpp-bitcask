@@ -19,6 +19,8 @@ add_library(bitcask ${SOURCES})
 # Test executable
 add_executable(bitcask-test ${TEST_SOURCES})
 
+target_compile_options(bitcask PUBLIC -g)
+target_compile_options(bitcask-test PUBLIC -g)
 # Include directories
 target_include_directories(bitcask PUBLIC headers)
 # target_include_directories(bitcask-test PRIVATE src)
