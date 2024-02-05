@@ -2,7 +2,8 @@
 add_executable(bitcask-test
 datapacket-store.t.cpp
 basic-store-retrieve.t.cpp
-file-orch.t.cpp
+file-orch.t
+benchmark-double-storage.t.cpp
 )
 
 target_compile_options(bitcask-test PUBLIC -g)
